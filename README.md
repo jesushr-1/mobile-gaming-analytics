@@ -1,38 +1,38 @@
-# Análisis de juegos móviles: retención de jugadores y pruebas A/B
+# Mobile Gaming Analytics: Player Retention & A/B Testing
 
-Este proyecto analiza el comportamiento de los jugadores en un juego móvil, centrándose en dos áreas clave: la **retención de jugadores** y la **monetización**.
+This project analyzes player behavior in a mobile game, focusing on two key areas: **player retention** and **monetization**.
 
-A partir de datos de registro, actividad de inicio de sesión y pruebas A/B, el análisis mide la retención en días específicos (D1, D7, D14 y D30) y evalúa el rendimiento de dos ofertas promocionales mediante la **tasa de conversión, el ARPU y el ARPPU**.
+Using registration, login activity, and A/B test data, the analysis measures exact-day retention at D1, D7, D14, and D30 and evaluates the performance of two promotional offers using **Conversion Rate, ARPU, and ARPPU**.
 
-Se emplean pruebas de hipótesis estadísticas para determinar si las diferencias entre los grupos de control y de prueba aportan evidencia suficiente para respaldar un cambio en la estrategia promocional.
+Statistical hypothesis testing is used to determine whether the differences between the control and test groups provide sufficient evidence to support a change in promotional strategy.
 
-## Problema de negocio
+## Business Problem
 
-El rendimiento a largo plazo de los juegos móviles depende tanto del **compromiso de los jugadores** (*engagement*) como de la **monetización**. Comprender si los jugadores regresan tras registrarse y cómo responden a las ofertas promocionales puede orientar las decisiones sobre el producto y el marketing.
+Mobile games depend on both **player engagement** and **monetization** for long-term performance. Understanding whether players return after registration and how they respond to promotional offers can help guide product and marketing decisions.
 
-Este proyecto aborda dos cuestiones empresariales clave:
+This project addresses two main business questions:
 
-1. **Retención de jugadores:** ¿Cuántos jugadores regresan al juego 1, 7, 14 y 30 días después de registrarse?
+1. **Player Retention:** How many players return to the game after 1, 7, 14, and 30 days from registration?
 
-2. **Rendimiento de la oferta promocional:** ¿Mejora la nueva oferta promocional (Grupo B) la monetización en comparación con la oferta existente (Grupo A) sin afectar negativamente a la proporción de jugadores que realizan una compra?
+2. **Promotional Offer Performance:** Does the new promotional offer (Group B) improve monetization compared with the existing offer (Group A) without negatively affecting the proportion of players who make a purchase?
 
-El objetivo es transformar los datos de actividad de los jugadores y de ingresos en información práctica que respalde la toma de decisiones sobre retención y monetización.
+The goal is to translate player activity and revenue data into actionable insights that can support retention and monetization decisions.
 
-## Conjunto de datos
+## Dataset
 
-El análisis utiliza tres conjuntos de datos provenientes del **Gamelytics Mobile Analytics Challenge**:
+The analysis uses three datasets from the **Gamelytics Mobile Analytics Challenge**:
 
-- **`reg_data.csv`** — Datos de registro de 1.000.000 de jugadores, que incluyen el ID de usuario (`uid`) y la marca de tiempo del registro (`reg_ts`).
+- **`reg_data.csv`** — Registration data for 1,000,000 players, including the user ID (`uid`) and registration timestamp (`reg_ts`).
 
-- **`auth_data.csv`** — Más de 9,6 millones de registros de inicio de sesión de jugadores, que contienen el ID de usuario (`uid`) y la marca de tiempo de autenticación (`auth_ts`).
+- **`auth_data.csv`** — More than 9.6 million player login records, containing the user ID (`uid`) and authentication timestamp (`auth_ts`).
 
-- **`ab_test.csv`** — Datos de una prueba A/B con 404.770 jugadores, que incluyen el ID de usuario (`user_id`), los ingresos generados (`revenue`) y el grupo experimental (`testgroup`).
+- **`ab_test.csv`** — A/B test data for 404,770 players, including the user ID (`user_id`), revenue generated (`revenue`), and experimental group (`testgroup`).
 
-Los conjuntos de datos de registro y autenticación se utilizan para analizar la retención de jugadores, mientras que el conjunto de datos de la prueba A/B se emplea para evaluar el impacto de diferentes ofertas promocionales en la monetización.
+The registration and authentication datasets are used to analyze player retention, while the A/B test dataset is used to evaluate the impact of different promotional offers on monetization.
 
-## Principales hallazgos
+## Key Findings
 
-- La retención en el día exacto fue mayor en el día 7 (5,88%) entre los puntos de control analizados.
-- El Grupo B registró un aumento del 5,3% en el ARPU observado y del 12,7% en el ARPPU; sin embargo, ninguno de estos incrementos fue estadísticamente significativo.
-- El Grupo B mostró una disminución estadísticamente significativa en la tasa de conversión.
-- A la luz de los resultados, el análisis no respalda la sustitución de la oferta promocional A por la oferta B.
+- Exact-day retention was highest at D7 (5.88%) among the analyzed checkpoints.
+- Group B increased observed ARPU by 5.3% and ARPPU by 12.7%, but neither increase was statistically significant.
+- Group B showed a statistically significant decrease in conversion rate.
+- Based on the results, the analysis does not support replacing promotional offer A with offer B.
